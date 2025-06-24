@@ -21,13 +21,17 @@ def set_servo_angle(pin, angle):
     pi.set_servo_pulsewidth(pin, pulsewidth)
 
 # Track current angles
+set_servo_angle(SERVO_X_PIN, 90)
+set_servo_angle(SERVO_Y_PIN, 90)
+time.sleep(1)
+
 current_x_angle = 90
 current_y_angle = 90
 
 class LaserTracker:
     def __init__(self):
         self.lower_red1 = np.array([0, 120, 200])
-        self.upper_red1 = np.array([10, 255, 255])
+        self.upper_red1 = np.array([20, 255, 255])
         self.lower_red2 = np.array([160, 120, 200])
         self.upper_red2 = np.array([180, 255, 255])
     
@@ -45,7 +49,7 @@ class LaserTracker:
         if contours:
             c = max(contours, key=cv2.contourArea)
             ((x, y), radius) = cv2.minEnclosingCircle(c)
-            if radius > 5:
+            if radius > 0.5:
                 M = cv2.moments(c)
                 if M["m00"] != 0:
                     center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
