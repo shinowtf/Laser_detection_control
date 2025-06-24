@@ -1,6 +1,7 @@
 INSTRUCTION MANUAL 
 
 OVERVIEW 
+
 The  defence technology missile guidance educational kit  is primarily composed of a Raspberry Pi 4 Model B (2GB) as the main processor, running computer vision algorithms via OpenCV. The system captures real-time images using an OV5647 camera Module, connected to the Pi’s CSI ribbon cable interface, with a resolution of 5MP (2592×1944) and a 54° horizontal field of view.
 A 650nm red laser pointer (5mW) is integrated for target detection, while two SG90 servo motors control a 3D-printed PLA gimbal chassis (printed at 190–220°C) to adjust the camera’s X/Y axis orientation. The servos operate at 4.8–5V DC with 180° rotation range, driven by the Pi’s GPIO PWM signals.
 Power is supplied via a USB Type-C adapter (5V, 2A), and all components are secured with M2.5 screws (3mm length). The Raspberry Pi executes custom Python scripts to process OV564 camera input, detect laser alignment, and adjust the gimbal servos for precise targeting—demonstrating principles image processing, and real-time feedback control.
